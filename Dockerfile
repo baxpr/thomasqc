@@ -4,4 +4,4 @@ COPY src /opt/thomasqc/src
 
 ENV PATH=/opt/thomasqc/src:$PATH
 
-ENTRYPOINT ["finish.sh"]
+ENTRYPOINT ["xwrapper.sh","finish.sh"]
