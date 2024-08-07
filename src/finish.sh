@@ -5,6 +5,7 @@
 # Defaults
 export out_dir=/OUTPUTS
 export label=""
+export imgfile_basename="t1"
 
 # Parse inputs
 while [[ $# -gt 0 ]]
@@ -15,6 +16,8 @@ do
         export out_dir="$2"; shift; shift;;
     --label)
         export label="$2"; shift; shift;;
+    --imgfile_basename)
+        export imgfile_basename="$2"; shift; shift;;
     *)
 		echo "Unknown argument $key"; shift;;
   esac
@@ -36,8 +39,8 @@ for sl in -7 -4 -1 2 5 8; do
         --scene ortho \
         --worldLoc ${XYZ[0]} ${XYZ[1]} $(echo ${XYZ[2]} + ${sl} | bc -l) \
         --layout horizontal --hideCursor --hideLabels --hidex --hidey \
-        left/crop_t1 --overlayType volume \
-        right/crop_t1 --overlayType volume \
+        "left/crop_${imgfile_basename}" --overlayType volume \
+        "right/crop_${imgfile_basename}" --overlayType volume \
         left/1-THALAMUS --overlayType label --lut random --outline --outlineWidth 1 \
         right/1-THALAMUS --overlayType label --lut random --outline --outlineWidth 1 \
         left/thomas --overlayType label --lut random --outline --outlineWidth 3 \
