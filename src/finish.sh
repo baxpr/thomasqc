@@ -12,12 +12,9 @@ while [[ $# -gt 0 ]]
 do
   key="$1"
   case $key in
-    --out_dir)
-        export out_dir="$2"; shift; shift;;
-    --label)
-        export label="$2"; shift; shift;;
-    --imgfile_basename)
-        export imgfile_basename="$2"; shift; shift;;
+    --out_dir)            export out_dir="$2"; shift; shift;;
+    --label)              export label="$2"; shift; shift;;
+    --imgfile_basename)   export imgfile_basename="$2"; shift; shift;;
     *)
 		echo "Unknown argument $key"; shift;;
   esac
